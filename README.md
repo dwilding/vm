@@ -1,3 +1,5 @@
+Pack the dashboard rock and charm from source:
+
 ```sh { name=dashboard-pack }
 cd
 git clone https://github.com/canonical/dashboard.git
@@ -7,6 +9,8 @@ rockcraft pack
 cd ~/dashboard/charm
 charmcraft pack
 ```
+
+Deploy the dashboard and PostgreSQL to Juju:
 
 ```sh { name=dashboard-deploy }
 cd ~/dashboard
