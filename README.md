@@ -18,7 +18,7 @@ cd ~/dashboard
 rockcraft.skopeo --insecure-policy copy --dest-tls-verify=false \
   oci-archive:dashboard_0.7_amd64.rock \
   docker://localhost:32000/dashboard:0.7
-cd ~/juju
+cd ~/vm/juju
 rm -rf .venv
 python3 -m venv .venv
 . .venv/bin/activate
