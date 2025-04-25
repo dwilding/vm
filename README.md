@@ -2,6 +2,7 @@ Pack the dashboard rock and charm from source:
 
 ```sh { name=dashboard-pack }
 cd
+rm -rf dashboard
 git clone https://github.com/canonical/dashboard.git
 cd ~/dashboard
 cp dashboard_rock_patch/dashboard/settings.py dashboard/dashboard
