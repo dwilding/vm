@@ -18,10 +18,13 @@ cd ~/dashboard
 rockcraft.skopeo --insecure-policy copy --dest-tls-verify=false \
   oci-archive:dashboard_0.7_amd64.rock \
   docker://localhost:32000/dashboard:0.7
-juju deploy ./charm/dashboard_ubuntu-22.04-amd64.charm \
-  --resource django-app-image=localhost:32000/dashboard:0.7
-juju config dashboard django-debug=true
-juju config dashboard django-allowed-hosts='*'
-juju deploy postgresql-k8s --trust
-juju status --watch 1s
+cd ~/juju
+rm -rf .venv
+python3 -m venv .venv
+. .venv/bin/activate
+pip install -r requirements.txt
+python dashboard.py \
+  ~/dashboard/charm/dashboard_ubuntu-22.04-amd64.charm \
+  localhost:32000/dashboard:0.7
+deactivate
 ```
