@@ -29,9 +29,5 @@ def main():
     print("Done\n")
 
 
-def dashboard_blocked(status: jubilant.Status) -> bool:
-    return jubilant.all_blocked(status, "dashboard")
-
-
 if __name__ == "__main__":
     main()
