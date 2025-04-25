@@ -11,7 +11,7 @@ def main():
     image = args[1]
     juju = jubilant.Juju()
     juju.wait_timeout = 10 * 60
-    print("Deploying Dashboard…")
+    print("Deploying dashboard…")
     resources = {
         "django-app-image": image,
     }
@@ -23,7 +23,7 @@ def main():
     juju.config("dashboard", values=config)
     juju.wait(lambda status: jubilant.all_blocked(status, "dashboard"))
     print("Done\n")
-    print("Deploying PostgreSQL…")
+    print("Deploying postgresql-k8s…")
     juju.deploy("postgresql-k8s", trust=True)
     juju.wait(lambda status: jubilant.all_active(status, "postgresql-k8s"))
     print("Done\n")
