@@ -8,6 +8,9 @@ sudo microk8s enable registry
 # Install uv
 sudo snap install --classic astral-uv
 
+# Install tox
+sudo apt install -y tox
+
 # Install runme (for running commands in README files)
 cd
 wget https://download.stateful.com/runme/3.13.1/runme_linux_x86_64.deb
