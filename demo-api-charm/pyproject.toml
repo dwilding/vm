@@ -10,7 +10,9 @@ dependencies = [
 
 [dependency-groups]
 # Dependencies of Charmcraft libraries (from their PYDEPS)
-charmlib-pydeps = []
+charmlib-pydeps = [
+    "Faker",
+]
 # Dependencies of code in tests/unit/
 unit = [
     "ops[testing]",
