@@ -7,9 +7,10 @@ sudo microk8s enable registry
 
 # Install uv
 sudo snap install --classic astral-uv
+uv tool update-shell
 
-# Install tox
-sudo apt install -y tox
+# Install tox and the tox-uv plugin
+uv tool install tox --with tox-uv
 
 # Install runme (for running commands in README files)
 cd
