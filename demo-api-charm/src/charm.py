@@ -12,8 +12,6 @@ import ops
 # A standalone module for workload-specific logic (no charming concerns):
 import demo_api
 
-from charms.data_platform_libs.v0.data_interfaces import DatabaseRequires
-
 logger = logging.getLogger(__name__)
 
 SERVICE_NAME = "some-service"  # Name of Pebble service that runs in the workload container.
