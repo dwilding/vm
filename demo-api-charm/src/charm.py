@@ -30,12 +30,14 @@ class DemoApiCharmCharm(ops.CharmBase):
         self.unit.status = ops.MaintenanceStatus("starting workload")
         # To start the workload, we'll add a Pebble layer to the workload container.
         # The layer specifies which service to run.
-        command = ' '.join([
-            'uvicorn',
-            'api_demo_server.app:app',
-            '--host=0.0.0.0',
-            '--port=8000',
-        ])
+        command = " ".join(
+            [
+                "uvicorn",
+                "api_demo_server.app:app",
+                "--host=0.0.0.0",
+                "--port=8000",
+            ]
+        )
         layer: ops.pebble.LayerDict = {
             "services": {
                 SERVICE_NAME: {
