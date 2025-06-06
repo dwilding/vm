@@ -53,7 +53,7 @@ def test_pebble_ready(monkeypatch: pytest.MonkeyPatch):
         can_connect=True,
         layers={"base": layer},
         service_statuses={SERVICE_NAME: pebble.ServiceStatus.INACTIVE},
-        check_infos={check_in},
+        check_infos=frozenset({check_in}),
     )
     state_in = testing.State(containers={container_in})
     monkeypatch.setattr("charm.demo_api.get_version", mock_get_version)
@@ -82,7 +82,7 @@ def test_pebble_ready_service_not_ready():
         can_connect=True,
         layers={"base": layer},
         service_statuses={SERVICE_NAME: pebble.ServiceStatus.INACTIVE},
-        check_infos={check_in},
+        check_infos=frozenset({check_in}),
     )
     state_in = testing.State(containers={container_in})
 

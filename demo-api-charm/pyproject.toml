@@ -3,33 +3,29 @@ name = "demo-api-charm"
 version = "0.0.1"
 requires-python = ">=3.10"
 
-# Dependencies of the charm code in src/
+# Dependencies of the charm code
 dependencies = [
-    "ops >=2.22,<3",
+    "ops<4",
 ]
 
 [dependency-groups]
-# Dependencies of Charmcraft libraries (from their PYDEPS)
+# Dependencies of charmlibs (from their PYDEPS)
 charmlib-pydeps = []
-# Dependencies of code in tests/unit/
+# Dependencies of static type checks
+static = [
+    "pyright",
+]
+# Dependencies of unit tests
 unit = [
+    "coverage[toml]",
     "ops[testing]",
     "pytest",
 ]
-# Dependencies of code in tests/integration/
+# Dependencies of integration tests
 integration = [
+    "juju",
     "pytest",
     "pytest-operator",
-]
-# Dependencies needed to actually run the tests
-run-static = [
-    "pyright",
-]
-run-unit = [
-    "coverage[toml]",
-]
-run-integration = [
-    "juju",
 ]
 
 # Testing tools configuration
@@ -62,8 +58,8 @@ lint.extend-ignore = [
     "D409",
     "D413",
 ]
-extend-exclude = ["__pycache__", "*.egg_info"]
 lint.per-file-ignores = {"tests/*" = ["D100","D101","D102","D103","D104"]}
+extend-exclude = ["__pycache__", "*.egg_info"]
 
 [tool.ruff.lint.mccabe]
 max-complexity = 10
