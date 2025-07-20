@@ -17,10 +17,7 @@ uv tool install gimmegit
 cat <<'EOF' >> ~/.bashrc
 
 gimmegit() {
-    __="$(
-        PYTHONUNBUFFERED=1 \
-        command gimmegit "$@" | tee /dev/tty | tail -n 1
-    )"
+    __="$(command gimmegit "$@" | tee /dev/tty | tail -n 1)"
 }
 EOF
 
