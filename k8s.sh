@@ -17,7 +17,7 @@ uv tool install gimmegit
 cat <<'EOF' >> ~/.bashrc
 
 gimmegit() {
-    __="$(command gimmegit "$@" | tee /dev/tty | tail -n 1)"
+    __="$(command gimmegit --color=always "$@" | tee /dev/tty | tail -n 1)"
 }
 EOF
 
