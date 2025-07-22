@@ -21,12 +21,17 @@ gimmegit() {
 }
 EOF
 
+# Configure nano to use spaces instead of tabs
+cat <<'EOF' > ~/.nanorc
+set tabsize 4
+set tabstospaces
+EOF
+
 # Install runme (for running commands in README files)
 cd
 wget https://download.stateful.com/runme/3.13.1/runme_linux_x86_64.deb
 sudo apt install ./runme_linux_x86_64.deb
 rm -f runme_linux_x86_64.deb
-cat <<'EOF' >> ~/.bash_aliases
-
+cat <<'EOF' > ~/.bash_aliases
 alias runme='runme --filename=README.md --allow-unnamed=false --exit'
 EOF
