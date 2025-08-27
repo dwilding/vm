@@ -17,7 +17,11 @@ uv tool install gimmegit
 cat <<'EOF' >> ~/.bashrc
 
 gimmegit() {
-    __="$(command gimmegit --color=always "$@" 2>&1 | tee /dev/tty | tail -n 1)"
+    if [ "$(pwd)" = "$HOME" ]; then
+        __="$(command gimmegit --color=always "$@" 2>&1 | tee /dev/tty | tail -n 1)"
+    else
+        echo "Don't run gimmegit here!"
+    fi
 }
 EOF
 
